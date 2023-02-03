@@ -17,9 +17,23 @@ namespace RpgLogicProject
 
         //дебаффы
 
-        public bool isPoisoned { get; set; } = false;
+        private bool isPoisoned = false;
+        public bool IsPoisoned
+        {
+            get
+            {
+                return isPoisoned;
+            }
+            set { isPoisoned =value;}
+        }
 
-        public bool isFreezed { get; set; } = false;
+        private bool isFreezed = false;
+        public bool IsFreezed
+        {
+            get { return isFreezed; }
+
+            set { isFreezed =value; }
+
 
 
     }
