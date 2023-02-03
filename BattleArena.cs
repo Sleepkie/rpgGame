@@ -46,9 +46,7 @@ namespace RpgLogicProject
                 
             }
 
-            var winner = firstCreature.Hp > 0 ? firstCreature : secondCreature;
-            
-            return winner == Hero ? 1 : 0;
+            return Hero.Hp > 0 ? 1 : 0; 
 
             //Реализовать пошаговый бой до окончании жизни одного из участников битвы
             //Вернуть 1 в случае победы. 0 - поражение

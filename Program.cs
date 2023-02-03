@@ -12,7 +12,7 @@ var Arena = new BattleArena(Orc, Elf);
 var pobedka = Arena.Battle();
 
 if (pobedka == 1) Console.WriteLine("Эльф разъебал");
-else Console.WriteLine("Эльф пососал");
+else Console.WriteLine("Эльф пососал1");
 
 
 
