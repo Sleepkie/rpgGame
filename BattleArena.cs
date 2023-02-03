@@ -6,6 +6,8 @@ namespace RpgLogicProject
         public Enemy Enemy { get; set; }
         public Hero Hero { get; set; }
 
+        
+
         public BattleArena(Enemy enemy, Hero hero)
         {
             Enemy = enemy;
@@ -18,7 +20,11 @@ namespace RpgLogicProject
             Random random= new Random();
             if (random.Next(2) == 0)
             {
+                while (Hero.Hp !=0 && Enemy.Hp !=0)
+                {
+                    Hero.Attack();
 
+                }
 
 
             }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RpgLogicProject
 {
-    internal class Weapon
+    public class Weapon
     {
 
         private int _hitCount = 0;

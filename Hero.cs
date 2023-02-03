@@ -6,6 +6,7 @@ namespace RpgLogicProject
 
         public override double Damage { get; set; }
 
+        public Weapon Weapon { get; set; }
         
         // Добавить оружие или броню с модификаторами:
         // CRIT - каждый 3 удар увеличивает урон на 150%
@@ -19,6 +20,7 @@ namespace RpgLogicProject
             Level = level;
             Hp = hp;
             Damage = 1.1 * Level;
+            Weapon = new Weapon();
         }
 
 
@@ -27,6 +29,15 @@ namespace RpgLogicProject
 
             
 
+        }
+
+        public double Attack(Creature creature )
+        {
+            bool poison;
+            double damage =Weapon.GetDamageValue(Damage, out poison);
+            creature.IsPoisoned = poison;
+            return damage;
+            
         }
     }
 }
