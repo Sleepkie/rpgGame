@@ -4,9 +4,8 @@ namespace RpgLogicProject
 	public class Hero : Creature
 	{
 
-        public override double Damage { get; set; }
+        
 
-        public Weapon Weapon { get; set; }
         
         // Добавить оружие или броню с модификаторами:
         // CRIT - каждый 3 удар увеличивает урон на 150%
@@ -24,21 +23,7 @@ namespace RpgLogicProject
         }
 
 
-        public void SetTarget(Creature creature)
-        {
-
-            
-
-        }
-
-        public double Attack(Creature creature )
-        {
-            bool poison;
-            double damage =Weapon.GetDamageValue(Damage, out poison);
-            creature.IsPoisoned = poison;
-            return damage;
-            
-        }
+        
     }
 }
 

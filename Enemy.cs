@@ -11,10 +11,13 @@ namespace RpgLogicProject
         // POSION - каждый ход наносится дополнительно 10 урона
         // Модификаторы могут меняться в зависимости от вашей фантазии
 
-        public Enemy(string name, int level)
+        public Enemy(string name, int level, double hp)
         {
             Name = name;
             Level = level;
+            Hp = hp;
+            Damage = 1.1 * Level;
+            Weapon = new Weapon();
         }
     }
 }

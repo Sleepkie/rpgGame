@@ -17,14 +17,14 @@ namespace RpgLogicProject
 
         //дебаффы
 
-        private bool isPoisoned = false;
-        public bool IsPoisoned
+        private double _poisonDamagePerMove = 0;
+        public double PoisonDamagePerMove
         {
             get
             {
-                return isPoisoned;
+                return _poisonDamagePerMove;
             }
-            set { isPoisoned =value;}
+            set { _poisonDamagePerMove = value;}
         }
 
         private bool isFreezed = false;
@@ -32,9 +32,35 @@ namespace RpgLogicProject
         {
             get { return isFreezed; }
 
-            set { isFreezed =value; }
+            set { isFreezed = value; }
+
+        }
+
+        public Weapon Weapon { get; set; }
+
+        public Creature Target { get; private set; }
 
 
+
+
+        public void SetTarget(Creature creature)
+        {
+
+            Target = creature;
+
+        }
+
+        public void Attack()
+        {
+            if (IsFreezed) return;
+            var hitProps = Weapon.GetHitProps(Damage);
+
+            Target.Hp -= hitProps.DamageValue;
+            Target.IsFreezed = hitProps.IsFreezing;
+            Target.PoisonDamagePerMove = hitProps.PoisonDamageValue;
+
+
+        }
 
     }
 }

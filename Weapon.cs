@@ -15,9 +15,10 @@ namespace RpgLogicProject
 
         private double _criticalMultiplier = 1.5;
 
-        public double GetDamageValue(double damage, out bool cold)
+        public HitProps GetHitProps(double damage)
         {
             double damageValue = damage;
+            bool cold = false; 
             _hitCount++;
             if (_hitCount % 3 == 0)
             {
@@ -27,9 +28,8 @@ namespace RpgLogicProject
             {
                 cold = true;
             }
-            else cold = false;
             
-            return damageValue;
+            return new HitProps(damageValue, cold , _poisonDamage  );
         }
 
     }

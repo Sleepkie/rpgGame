@@ -17,26 +17,43 @@ namespace RpgLogicProject
 
         public int Battle()
         {
-            Random random= new Random();
-            if (random.Next(2) == 0)
+            Random random = new Random();
+
+            int randomValue = random.Next(2);
+            Creature firstCreature = randomValue == 0 ? Hero : Enemy;
+            Creature secondCreature = randomValue == 1 ? Hero : Enemy;
+            firstCreature.SetTarget(secondCreature);
+            secondCreature.SetTarget(firstCreature);
+            //драчка
+            Console.WriteLine("Пошла ёбка");
+            while (true)
             {
-                while (Hero.Hp !=0 && Enemy.Hp !=0)
-                {
-                    Hero.Attack();
+                
+                firstCreature.Hp -= firstCreature.PoisonDamagePerMove;
+                secondCreature.Hp -= firstCreature.PoisonDamagePerMove;
+                Console.WriteLine($"ХП ГЕРОЯ: {Hero.Hp}");
+                Console.WriteLine($"ХП ПИДАРАСА: {Enemy.Hp}");
 
-                }
+                firstCreature.Attack();
+                
+                if (secondCreature.Hp <= 0) { break; }
 
+                secondCreature.Attack();
 
+                if (firstCreature.Hp <= 0) { break; }
+
+                Thread.Sleep(1000);
+                
             }
-            else
-            {
 
-            }
+            var winner = firstCreature.Hp > 0 ? firstCreature : secondCreature;
+            
+            return winner == Hero ? 1 : 0;
 
             //Реализовать пошаговый бой до окончании жизни одного из участников битвы
             //Вернуть 1 в случае победы. 0 - поражение
 
-            return 0;
+
         }
     }
 
