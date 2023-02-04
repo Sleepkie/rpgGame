@@ -25,14 +25,14 @@ namespace RpgLogicProject
             firstCreature.SetTarget(secondCreature);
             secondCreature.SetTarget(firstCreature);
             //драчка
-            Console.WriteLine("Пошла ёбка");
+            Console.WriteLine("Битва началась!");
             while (true)
             {
                 
                 firstCreature.Hp -= firstCreature.PoisonDamagePerMove;
                 secondCreature.Hp -= firstCreature.PoisonDamagePerMove;
                 Console.WriteLine($"ХП ГЕРОЯ: {Hero.Hp}");
-                Console.WriteLine($"ХП ПИДАРАСА: {Enemy.Hp}");
+                Console.WriteLine($"ХП Врага: {Enemy.Hp}");
 
                 firstCreature.Attack();
                 
