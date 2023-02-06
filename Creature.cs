@@ -15,6 +15,8 @@ namespace RpgLogicProject
 
         public virtual double Damage { get;  set; }
 
+        public BackPack Backpack { get; set; }
+
         //дебаффы
 
         private double _poisonDamagePerMove = 0;

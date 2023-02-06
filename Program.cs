@@ -3,13 +3,26 @@
 //Инициализировать классы. И начать битву 
 Console.WriteLine("Битва!");
 
-var Elf = new Hero("LEGOLAS", 22, 127);
+var elf = new Hero("LEGOLAS", 60, 127);
 
-var Orc = new Enemy("Thrall", 20, 137);
 
-var Arena = new BattleArena(Orc, Elf);
+elf.Backpack.Add(new Item("shield", 7));
+elf.Backpack.Add(new Item("sword", 1));
+elf.Backpack.Add(new Item("Hood", 5));
 
-var pobedka = Arena.Battle();
+
+var orc = new Enemy("Thrall", 20, 137);
+
+
+
+orc.Backpack.Add(new Item("Big Sword", 1));
+orc.Backpack.Add(new Item("Armor", 5));
+
+var arena = new BattleArena(orc, elf);
+
+var pobedka = arena.Battle();
+
+if (pobedka == 1) elf.LootCreature(orc);
 
 if (pobedka == 1) Console.WriteLine("Эльф победил");
 else Console.WriteLine("Эльф проиграл");

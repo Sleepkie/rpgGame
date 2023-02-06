@@ -19,7 +19,28 @@ namespace RpgLogicProject
             Level = level;
             Hp = hp;
             Damage = 1.1 * Level;
+            Backpack = new BackPack(15, 55);
             Weapon = new Weapon();
+        }
+
+        public void LootCreature(Creature creature)
+        {
+
+            
+
+            for (int i = 0; i < creature.Backpack.ItemsInBackPack.Count; i++)
+            {
+                if (Backpack.GetWeigth() + creature.Backpack.GetItem(i).Weight > Backpack.MaxWeight) return;
+
+
+                Backpack.Add(creature.Backpack.ItemsInBackPack[i]);
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($">Забрал: {Backpack.ItemsInBackPack[i].Name} ");
+                Console.ForegroundColor = ConsoleColor.White;
+            }
+            Console.WriteLine("Залутано");
+            
+
         }
 
 

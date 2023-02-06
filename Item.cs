@@ -5,13 +5,16 @@ namespace RpgLogicProject
 	public class Item
 	{
 		public string Name { get; set; }
-		public int Weigth { get; set;}
+		public int Weight { get; set;}
 
+        public Item()
+        {
 
+        }
         public Item(string name, int weigth)
         {
             Name = name;
-            Weigth = weigth;
+            Weight = weigth;
         }
     }
 }

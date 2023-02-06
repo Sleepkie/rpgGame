@@ -17,6 +17,7 @@ namespace RpgLogicProject
             Level = level;
             Hp = hp;
             Damage = 1.1 * Level;
+            Backpack = new BackPack(10, 45);
             Weapon = new Weapon();
         }
     }
